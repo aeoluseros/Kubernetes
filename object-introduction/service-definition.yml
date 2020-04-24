@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: NodePort
+  ports:
+  - targetPort: 80
+    port: 80       #the only mandatory field
+    nodePort: 30008
+  selector:        #pull labels from the pod-definition.yml and place it under the selector section
+    app: myapp

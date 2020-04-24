@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet      #YAML is case sensitive and doesn't accept tab
+metadata: 
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: front-end
+
+spec:      #ReplicaSet
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+    spec:   #POD
+        containers: 
+          - name: nginx-container
+            image: nginx
+
+  replicas: 6
+  selector:      # Required in replicaSet, which provides more options as well
+    matchLabels: 
+      app: myapp
