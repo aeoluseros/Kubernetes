@@ -1,13 +1,11 @@
-# external load balancer
 apiVersion: v1
 kind: Service
-metadata: 
+metadata:
   name: voting-service
   labels:
     name: voting-service
     app: demo-voting-app
 spec:
-  #By default, the service type is clusterIP (internal service, only avaiable within the cluster). 
   type: LoadBalancer
   ports:
   - port: 80
